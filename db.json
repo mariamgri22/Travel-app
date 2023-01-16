@@ -1,0 +1,58 @@
+{
+  "routes": [
+    {
+      "path": "/users",
+      "roles": [
+        "admin"
+      ]
+    },
+    {
+      "path": "/posts",
+      "roles": [
+        "admin",
+        "user"
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "email": "user1@example.com",
+      "password": "password1",
+      "role": "user"
+    },
+    {
+      "id": 2,
+      "email": "admin1@example.com",
+      "password": "password2",
+      "role": "admin"
+    },
+    {
+      "email": "user5@example.com",
+      "password": "$2a$10$4oeuNRFBDiMORzFI.LpwEO/cJboMaItJcoJt1YQ6kw8wq8kHf.3/S",
+      "id": 3
+    },
+    {
+      "email": "kk@gamil.com",
+      "password": "$2a$10$jxQoV14RVJKYfhKJp44EkemTA0yNcPLyj8tdi24gpZMgG8HLGjQcG",
+      "id": 4
+    },
+    {
+      "email": "jjj@gmail.com",
+      "password": "$2a$10$pquoEdMu2nveCSv2Yn79SuWpjqFiatX0YE74Wflh//gBBMiNzA90.",
+      "id": 5
+    }
+  ],
+  "posts": [
+    {
+      "id": 1,
+      "title": "First post",
+      "content": "This is the first post"
+    },
+    {
+      "id": 2,
+      "title": "Second post",
+      "content": "This is the second post"
+    }
+  ]
+}
