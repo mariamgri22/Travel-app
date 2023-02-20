@@ -1,10 +1,11 @@
-import React from 'react'
-import { Logout } from '../Logout'
+import React from "react";
+import LogoutButton from "../LogoutButton";
 
 export const Home = () => {
   return (
-    <div>Home
-        <Logout/>
+    <div>
+      Home
+      <LogoutButton />
     </div>
-  )
-}
+  );
+};

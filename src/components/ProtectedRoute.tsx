@@ -1,16 +1,18 @@
-import { useNavigate } from "react-router";
-import { useEffect } from "react";
+import { Navigate } from "react-router-dom";
 import { useAuthStore } from "../store/useAuthStore";
 
-export function ProtectedRoute({ children }: { children: React.ReactNode }) {
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
   const { token } = useAuthStore();
-  const navigate = useNavigate();
 
-  useEffect(() => {
-    if (!token) {
-      navigate("/login");
-    }
-  }, [token, navigate]);
- 
-  return <>{children}</>;
-}
+  // if (!token) {
+  //   return <Navigate to="/login" replace />;
+  // }
+  // console.log(
+  //   "🚀 ~ file: ProtectedRoute.tsx:63 ~ ProtectedRoute ~ token",
+  //   token
+  // );
+  // return children;
+  return !token ? <Navigate to="/login" replace /> : children;
+};
+
+export default ProtectedRoute;

@@ -1,9 +1,10 @@
 import "./App.css";
 import Login from "./components/Login";
-import { ProtectedRoute } from "./components/ProtectedRoute";
+import ProtectedRoute from "./components/ProtectedRoute";
 import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { Home } from "./components/Home";
+import Register from "./components/Register";
 
 function App() {
   return (
@@ -12,9 +13,15 @@ function App() {
       <BrowserRouter>
         <Routes>
           <Route path="/login" element={<Login />} />
-          {/* <ProtectedRoute>
-            <Route path="/" element={<Home />} />
-          </ProtectedRoute> */}
+          <Route path="/register" element={<Register />} />
+          <Route
+            path="/"
+            element={
+              <ProtectedRoute>
+                <Home />
+              </ProtectedRoute>
+            }
+          />
         </Routes>
       </BrowserRouter>
     </>
