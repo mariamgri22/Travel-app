@@ -4,12 +4,11 @@ import api from "../token";
 interface RegisterData {
   email: string;
   password: string;
-  role?: string; // Optional role field
+  role?: string; 
 }
 
 export const register = async (data: RegisterData) => {
   try {
-    // Set the default role to "user" if it's not provided in the data object
     if (!data.role) {
       data.role = "admin";
     }

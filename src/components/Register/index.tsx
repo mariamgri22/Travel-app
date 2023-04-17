@@ -21,10 +21,8 @@ const Register = () => {
     try {
       await register(formData);
       navigate("/");
-      // handle successful login, e.g. redirect to another page
     } catch (error) {
       console.error(error);
-      // handle login error, e.g. display error message to user
     }
   };
 
