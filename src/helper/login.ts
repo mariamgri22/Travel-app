@@ -4,10 +4,15 @@ import api from "../token";
 interface RegisterData {
   email: string;
   password: string;
+  role?: string; // Optional role field
 }
 
 export const register = async (data: RegisterData) => {
   try {
+    // Set the default role to "user" if it's not provided in the data object
+    if (!data.role) {
+      data.role = "admin";
+    }
     const response = await api.post("/register", data);
     console.log(response.data);
     const { accessToken } = response.data;
@@ -21,11 +26,14 @@ export const register = async (data: RegisterData) => {
 export const login = async (data: RegisterData) => {
   try {
     const response = await api.post("/login", data);
-    console.log(response.data);
+    console.log("res.dat", response.data.user.role);
     const { accessToken } = response.data;
+    const { role } = response.data.user;
     console.log("🚀 ~ file: register.ts:13 ~ login ~ token", accessToken);
     useAuthStore.getState().setToken(accessToken);
+    useAuthStore.getState().setRole(role);
   } catch (error) {
     console.error(error);
   }
 };
+

@@ -5,6 +5,7 @@ import { Route, Routes } from "react-router";
 import { BrowserRouter } from "react-router-dom";
 import { Home } from "./components/Home";
 import Register from "./components/Register";
+import { AdminDashboard } from "./components/AdminDashboard";
 
 function App() {
   return (
@@ -19,6 +20,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Home />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+               <AdminDashboard/>
               </ProtectedRoute>
             }
           />

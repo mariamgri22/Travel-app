@@ -45,11 +45,12 @@
 
 // export default Login;
 
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { login } from "../../helper/login";
+import { getRoutes } from "../../store/useRoutesStore";
+import { useAuthStore } from "../../store/useAuthStore";
 
 interface LoginFormData {
   email: string;
@@ -61,6 +62,7 @@ const Login = () => {
     email: "",
     password: "",
   });
+ 
 
   const navigate = useNavigate();
 
@@ -68,11 +70,15 @@ const Login = () => {
     event.preventDefault();
     try {
       await login(formData);
-      navigate("/");
-      // handle successful login, e.g. redirect to another page
+      const { role } = useAuthStore.getState();
+      if (role.includes("admin")) {
+        navigate("/admin");
+      } else {
+        navigate("/");
+      }
+  
     } catch (error) {
       console.error(error);
-      // handle login error, e.g. display error message to user
     }
   };
 

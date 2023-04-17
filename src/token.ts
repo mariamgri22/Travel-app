@@ -21,20 +21,23 @@
 
 import axios from "axios";
 import { useAuthStore } from "./store/useAuthStore";
+import { useRoutesStore } from "./store/useRoutesStore";
 
 const api = axios.create({
   baseURL: "http://localhost:8001", // Update the base URL to your server
 });
 
 api.interceptors.request.use((config) => {
-  const { token } = useAuthStore.getState();
-
+  const { token, role } = useAuthStore.getState();
+  const { routes } = useRoutesStore.getState();
+ 
   if (token) {
-    console.log(
-      "🚀 ~ file: token.ts:31 ~ api.interceptors.request.use ~ token",
-      token
-    );
     (config as any).headers.Authorization = `Bearer ${token}`;
+  }
+  const route = routes.find((r) => r.path === config.url);
+//!! fix me
+  if (route && route.roles && !route.roles.includes(role)) {
+    return Promise.reject(new Error("Forbidden"));
   }
   return config;
 });
