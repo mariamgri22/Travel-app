@@ -6,6 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Home } from "./components/Home";
 import Register from "./components/Register";
 import { AdminDashboard } from "./components/AdminDashboard";
+import { UserDashboard } from './components/UserDashboard'
 
 function App() {
   return (
@@ -15,18 +16,19 @@ function App() {
         <Routes>
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
+          <Route  path="/" element={  <Home />  } />
           <Route
-            path="/"
+            path="/user"
             element={
-              <ProtectedRoute>
-                <Home />
+              <ProtectedRoute requiredRole="user">
+               <UserDashboard/>
               </ProtectedRoute>
             }
           />
           <Route
             path="/admin"
             element={
-              <ProtectedRoute>
+              <ProtectedRoute requiredRole="admin">
                <AdminDashboard/>
               </ProtectedRoute>
             }

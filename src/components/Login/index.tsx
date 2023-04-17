@@ -1,5 +1,3 @@
-
-
 import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
@@ -17,7 +15,6 @@ const Login = () => {
     email: "",
     password: "",
   });
- 
 
   const navigate = useNavigate();
 
@@ -29,9 +26,8 @@ const Login = () => {
       if (role.includes("admin")) {
         navigate("/admin");
       } else {
-        navigate("/");
+        navigate("/user");
       }
-  
     } catch (error) {
       console.error(error);
     }
