@@ -6,7 +6,7 @@ import { BrowserRouter } from "react-router-dom";
 import { Home } from "./components/Home";
 import Register from "./components/Register";
 import { AdminDashboard } from "./components/AdminDashboard";
-import { UserDashboard } from './components/UserDashboard'
+import { UserDashboard } from "./components/UserDashboard";
 
 function App() {
   return (
@@ -14,22 +14,22 @@ function App() {
       {" "}
       <BrowserRouter>
         <Routes>
+          <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
-          <Route  path="/" element={  <Home />  } />
           <Route
             path="/user"
             element={
               <ProtectedRoute requiredRole="user">
-               <UserDashboard/>
+                <UserDashboard />
               </ProtectedRoute>
             }
           />
           <Route
-            path="/admin"
+            path="/admin/*"
             element={
               <ProtectedRoute requiredRole="admin">
-               <AdminDashboard/>
+                <AdminDashboard />
               </ProtectedRoute>
             }
           />

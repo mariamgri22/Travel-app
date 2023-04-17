@@ -48,9 +48,7 @@
 // import React from 'react'
 // import { withAuth } from '../../hocs/withAuth'
 
-
 // type Role = 'admin' | "user";
-
 
 // type Props = {
 //   allowedRoles: Role[];
@@ -63,14 +61,21 @@
 //   </div>
 // ));
 
-
-import React from 'react'
-import LogoutButton from '../LogoutButton'
+import React from "react";
+import LogoutButton from "../LogoutButton";
+import PostList from "../Posts/PostList";
+import CreatePostForm from "../Posts/CreatePostForm";
+import { Route, Routes } from "react-router-dom";
 
 export const AdminDashboard = () => {
   return (
-    <div>AdminDashboard
-      <LogoutButton/>
+    <div>
+
+      <Routes>
+        <Route path="/admin/posts" element={<PostList />} />
+        <Route path="/admin/create-post" element={<CreatePostForm />} />
+      </Routes>
+      <LogoutButton />
     </div>
-  )
-}
+  );
+};

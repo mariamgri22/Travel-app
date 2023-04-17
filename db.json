@@ -3,13 +3,18 @@
     {
       "path": "/users",
       "roles": [
-        ["admin"]
+        [
+          "admin"
+        ]
       ]
     },
     {
       "path": "/posts",
       "roles": [
-        ["admin","user"]
+        [
+          "admin",
+          "user"
+        ]
       ]
     }
   ],
@@ -73,13 +78,28 @@
   "posts": [
     {
       "id": 1,
-      "title": "First post",
+      "title": "First post 1",
       "content": "This is the first post"
     },
     {
       "id": 2,
       "title": "Second post",
       "content": "This is the second post"
+    },
+    {
+      "title": "Third post",
+      "content": "this is third post",
+      "id": 3
+    },
+    {
+      "title": "last",
+      "content": "last",
+      "id": 5
+    },
+    {
+      "title": "latest",
+      "content": "latesst",
+      "id": 6
     }
   ]
 }
