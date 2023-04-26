@@ -27,31 +27,6 @@ function App() {
             }
             path="/user"
           />
-          {/*   <Route
-            element={
-              <ProtectedRoute requiredRole="admin">
-                <AdminDashboard />
-              </ProtectedRoute>
-            }
-            path="/admin"
-          >*/}
-          {/* <Route
-              element={
-                <ProtectedRoute requiredRole="admin">
-                  <PostList />
-                </ProtectedRoute>
-              }
-              path="/admin/posts"
-            />
-          </Route>  */}
-          {/* <Route
-            element={
-              <ProtectedRoute requiredRole="admin">
-                <PostList />
-              </ProtectedRoute>
-            }
-            path="/admin/posts"
-          ></Route> */}
           <Route
             element={
               <ProtectedRoute requiredRole="admin">
