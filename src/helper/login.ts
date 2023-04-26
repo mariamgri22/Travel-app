@@ -28,7 +28,7 @@ export const login = async (data: RegisterData) => {
     console.log("res.dat", response.data.user.role);
     const { accessToken } = response.data;
     const { role } = response.data.user;
-    console.log("🚀 ~ file: register.ts:13 ~ login ~ token", accessToken);
+    console.log("🚀 ~ file: register.ts:13 ~ login ~ token", role);
     useAuthStore.getState().setToken(accessToken);
     useAuthStore.getState().setRole(role);
   } catch (error) {

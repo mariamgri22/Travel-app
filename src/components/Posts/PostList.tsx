@@ -14,6 +14,7 @@ const PostList = () => {
 
   useEffect(() => {
     getPosts();
+    console.log("buy")
   }, [getPosts]);
 
   const handleInputChange = (

@@ -15,6 +15,9 @@ const Login = () => {
     email: "",
     password: "",
   });
+  useEffect(()=>{
+    getRoutes();
+  },[])
 
   const navigate = useNavigate();
 
@@ -24,6 +27,7 @@ const Login = () => {
       await login(formData);
       const { role } = useAuthStore.getState();
       if (role.includes("admin")) {
+
         navigate("/admin");
       } else {
         navigate("/user");

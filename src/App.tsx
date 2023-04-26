@@ -7,6 +7,8 @@ import { Home } from "./components/Home";
 import Register from "./components/Register";
 import { AdminDashboard } from "./components/AdminDashboard";
 import { UserDashboard } from "./components/UserDashboard";
+import PostList from "./components/Posts/PostList";
+import CreatePostForm from "./components/Posts/CreatePostForm";
 
 function App() {
   return (
@@ -18,21 +20,49 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route
-            path="/user"
             element={
               <ProtectedRoute requiredRole="user">
                 <UserDashboard />
               </ProtectedRoute>
             }
+            path="/user"
           />
-          <Route
-            path="/admin/*"
+          {/*   <Route
             element={
               <ProtectedRoute requiredRole="admin">
                 <AdminDashboard />
               </ProtectedRoute>
             }
-          />
+            path="/admin"
+          >*/}
+          {/* <Route
+              element={
+                <ProtectedRoute requiredRole="admin">
+                  <PostList />
+                </ProtectedRoute>
+              }
+              path="/admin/posts"
+            />
+          </Route>  */}
+          {/* <Route
+            element={
+              <ProtectedRoute requiredRole="admin">
+                <PostList />
+              </ProtectedRoute>
+            }
+            path="/admin/posts"
+          ></Route> */}
+          <Route
+            element={
+              <ProtectedRoute requiredRole="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+            path="/admin"
+          >
+            <Route path="/admin/posts" element={<PostList />} />
+            <Route path="/admin/create-post" element={<CreatePostForm />} />
+          </Route>
         </Routes>
       </BrowserRouter>
     </>
